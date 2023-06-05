@@ -9,8 +9,8 @@ public class Spot {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "place_ID")
-	private String placeID;
+	@Column(name = "place_Id")
+	private String placeId;
 	
 	@Column(name = "formatted_address")
 	private String formattedAddress;
@@ -24,9 +24,9 @@ public class Spot {
 	@Column(name = "Name")
 	private String name;
 	
-	public Spot(String placeID, String formattedAddress, double latitude, double longitude, String name) {
+	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name) {
 		super();
-		this.placeID = placeID;
+		this.placeId = placeId;
 		this.formattedAddress = formattedAddress;
 		this.latitude = latitude;
 		this.longitude = longitude;
@@ -41,12 +41,12 @@ public class Spot {
 		this.id = id;
 	}
 	
-	public String getPlaceID() {
-		return placeID;
+	public String getPlaceId() {
+		return placeId;
 	}
 	
-	public void setPlaceID(String placeID) {
-		this.placeID = placeID;
+	public void setPlaceId(String placeId) {
+		this.placeId = placeId;
 	}
 	
 	
