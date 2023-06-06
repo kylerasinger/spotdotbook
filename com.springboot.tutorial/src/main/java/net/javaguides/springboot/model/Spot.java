@@ -24,6 +24,10 @@ public class Spot {
 	@Column(name = "Name")
 	private String name;
 	
+	public Spot() {
+		
+	}
+	
 	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name) {
 		super();
 		this.placeId = placeId;
