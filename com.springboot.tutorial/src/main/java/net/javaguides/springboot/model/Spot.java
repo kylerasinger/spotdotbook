@@ -27,11 +27,15 @@ public class Spot {
 	@Column(name = "Type")
 	private String type;
 	
+	@Column(name = "Date")
+	private String date;
+		//YYYY-MM-DD
+	
 	public Spot() {
 		
 	}
 	
-	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name, String type) {
+	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name, String type, String date) {
 		super();
 		this.placeId = placeId;
 		this.formattedAddress = formattedAddress;
@@ -39,6 +43,7 @@ public class Spot {
 		this.longitude = longitude;
 		this.name = name;	
 		this.type = type;
+		this.date = date;
 	}
 	
 	public long getId() {
@@ -93,5 +98,13 @@ public class Spot {
 	
 	public void setType(String type) {
 		this.type = type;
+	}
+	
+	public String getDate() {
+		return date;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
 	}
 }
