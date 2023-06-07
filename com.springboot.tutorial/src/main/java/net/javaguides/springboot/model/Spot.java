@@ -24,17 +24,21 @@ public class Spot {
 	@Column(name = "Name")
 	private String name;
 	
+	@Column(name = "Type")
+	private String type;
+	
 	public Spot() {
 		
 	}
 	
-	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name) {
+	public Spot(String placeId, String formattedAddress, double latitude, double longitude, String name, String type) {
 		super();
 		this.placeId = placeId;
 		this.formattedAddress = formattedAddress;
 		this.latitude = latitude;
 		this.longitude = longitude;
-		this.name = name;		
+		this.name = name;	
+		this.type = type;
 	}
 	
 	public long getId() {
@@ -81,5 +85,13 @@ public class Spot {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getType() {
+		return type;
+	}
+	
+	public void setType(String type) {
+		this.type = type;
 	}
 }

@@ -7,9 +7,7 @@ import { Provider as StyletronProvider, DebugEngine } from "styletron-react";
 import { Client as Styletron } from "styletron-engine-atomic";
 import { ThemeProvider, StyleReset } from 'atomize';
 
-const debug =
-  process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
-
+const debug = process.env.NODE_ENV === "production" ? void 0 : new DebugEngine();
 const engine = new Styletron();
 
 const theme = {

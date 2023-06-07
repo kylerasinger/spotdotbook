@@ -59,6 +59,7 @@ public class SpotController{
 		spot.setFormattedAddress(spotDetails.getFormattedAddress());
 		spot.setLatLong(spotDetails.getLatitude(), spotDetails.getLongitude());
 		spot.setName(spotDetails.getName());
+		spot.setType(spotDetails.getType());
 		
 		Spot updatedSpot = spotRepository.save(spot);
 		return ResponseEntity.ok(updatedSpot);		
