@@ -9,6 +9,8 @@ class SpotService {
     }
     
     createSpot(spot){
+        console.log("createSpot(spot):");
+        console.log("\t", spot);
         return axios.post(SPOT_API_BASE_URL, spot);
     }
 
