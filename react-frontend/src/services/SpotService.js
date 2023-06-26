@@ -9,7 +9,7 @@ class SpotService {
     }
     
     createSpot(spot){
-        return axios.post(SPOT_API_BASE_URL);
+        return axios.post(SPOT_API_BASE_URL, spot);
     }
 
     getSpotById(spotId){
