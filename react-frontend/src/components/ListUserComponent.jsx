@@ -36,7 +36,7 @@ const ListSpotComponent = () => {
     return (
         <div>
             <div className="row">
-                <button className="btn btn-primary" onClick={addSpot}>Add Spot</button>
+                <button className="btn btn-primary" onClick={addSpot} style={({marginTop: "10px"})}>Add Spot</button>
             </div>
             <br></br>
             <div className="row">
@@ -62,9 +62,9 @@ const ListSpotComponent = () => {
                                     <td> {spot.type} </td>
                                     <td> {spot.date} </td>
                                     <td>
-                                        <button onClick={ () => editSpot(spot.id)} className="btn btn-info">Update</button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => deleteSpot(spot.id)} className="btn btn-danger">Delete</button>
-                                        <button style={{marginLeft: "10px"}} onClick={ () => viewSpot(spot.id)} className="btn btn-info">View</button>
+                                        <button style={{marginLeft: "10px", marginTop: "5px"}} onClick={ () => editSpot(spot.id)} className="btn btn-info">Update</button>
+                                        <button style={{marginLeft: "10px", marginTop: "5px"}} onClick={ () => deleteSpot(spot.id)} className="btn btn-danger">Delete</button>
+                                        <button style={{marginLeft: "10px", marginTop: "5px"}} onClick={ () => viewSpot(spot.id)} className="btn btn-info">View</button>
                                     </td>
                                 </tr>
                             )

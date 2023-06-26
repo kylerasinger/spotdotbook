@@ -34,14 +34,16 @@ const CreateSpotComponent = () => {
     const saveOrUpdateSpot = (e) => {
         e.preventDefault();
 
-        const {id, latitude, longitude, date, formatted_address, name, place_id, type} = spot;
+        //i wrote this to check for invalid/empty fields. It checks the spot object and not the fields though, so itll never let the
+        //user submit their form
+        // const {id, latitude, longitude, date, formatted_address, name, place_id, type} = spot;
 
-        if(!id || !latitude || !longitude || !date || !formatted_address || !name || !place_id || !type){
-            setMissingInformation(true);
-            console.log("Insert information into all fields.");
-            return;
-        }else{setMissingInformation(false);}
-        
+        // if(id==='' || latitude==='' || longitude==='' || date==='' || formatted_address==='' || name==='' || place_id==='' || type===''){
+        //     setMissingInformation(true);
+        //     console.log("Insert information into all fields.");
+        //     return;
+        // }else{setMissingInformation(false);}
+
         if (id === '_add') {
             SpotService.createSpot(spot).then((res) => {
                 navigate('/spots');
@@ -64,7 +66,7 @@ const CreateSpotComponent = () => {
 
     const getTitle = () => {
         if (id === '_add') {
-            return <h3 className="text-center">Add Spot</h3>;
+            return <h3 style={{marginTop: "10px"}}className="text-center">Add Spot</h3>;
         } else {
             return <h3 className="text-center">Update Spot</h3>;
         }
@@ -74,7 +76,7 @@ const CreateSpotComponent = () => {
         if(!missingInformation){
             return null;
         }else{
-            return <h4 className ="text-center">Please enter all info</h4>
+            return <h5 className ="text-center">Please enter all info</h5>
         }
     }
 
@@ -88,7 +90,7 @@ const CreateSpotComponent = () => {
                         {getMessage()}
                         <div className="card-body">
                             <form>
-                                <div className="form-group">
+                                {/* <div className="form-group">
                                     <label> Identification: </label>
                                     <input
                                         placeholder="Id"
@@ -97,7 +99,7 @@ const CreateSpotComponent = () => {
                                         value={spot.id}
                                         onChange={handleInputChange}
                                     />
-                                </div>
+                                </div> */}
 
                                 <div className="form-group">
                                     <label> Latitude: </label>
@@ -176,16 +178,18 @@ const CreateSpotComponent = () => {
                                     />
                                 </div>
 
-                                <button className="btn btn-success" onClick={saveOrUpdateSpot}>
-                                    Save
-                                </button>
-                                <button
-                                    className="btn btn-danger"
-                                    onClick={cancel}
-                                    style={{ marginLeft: '10px' }}
-                                >
-                                    Cancel
-                                </button>
+                                <div style={{marginTop: "10px"}}> 
+                                    <button className="btn btn-success" onClick={saveOrUpdateSpot}>
+                                        Save
+                                    </button>
+                                    <button
+                                        className="btn btn-danger"
+                                        onClick={cancel}
+                                        style={{ marginLeft: '10px' }}
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>
