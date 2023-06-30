@@ -7,16 +7,14 @@ const CreateSpotComponent = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const [missingInformation, setMissingInformation] = useState(false);
-
     const [spot, setSpot] = useState({
         id: '',
         latitude: '',
         longitude: '',
         date: '',
-        formatted_address: '',
+        formattedAddress: '',
         name: '',
-        place_id: '',
+        placeId: '',
         type: ''
     });
 
@@ -33,16 +31,6 @@ const CreateSpotComponent = () => {
 
     const saveOrUpdateSpot = (e) => {
         e.preventDefault();
-
-        //i wrote this to check for invalid/empty fields. It checks the spot object and not the fields though, so itll never let the
-        //user submit their form
-        // const {id, latitude, longitude, date, formatted_address, name, place_id, type} = spot;
-
-        // if(id==='' || latitude==='' || longitude==='' || date==='' || formatted_address==='' || name==='' || place_id==='' || type===''){
-        //     setMissingInformation(true);
-        //     console.log("Insert information into all fields.");
-        //     return;
-        // }else{setMissingInformation(false);}
 
         if (id === '_add') {
             SpotService.createSpot(spot).then((res) => {
@@ -71,14 +59,6 @@ const CreateSpotComponent = () => {
             return <h3 className="text-center">Update Spot</h3>;
         }
     };
-    
-    const getMessage = () => {
-        if(!missingInformation){
-            return null;
-        }else{
-            return <h5 className ="text-center">Please enter all info</h5>
-        }
-    }
 
     return (
         <div>
@@ -87,20 +67,8 @@ const CreateSpotComponent = () => {
                 <div className="row">
                     <div className="card col-md-6 offset-md-3 offset-md-3">
                         {getTitle()}
-                        {getMessage()}
                         <div className="card-body">
                             <form>
-                                {/* <div className="form-group">
-                                    <label> Identification: </label>
-                                    <input
-                                        placeholder="Id"
-                                        name="id"
-                                        className="form-control"
-                                        value={spot.id}
-                                        onChange={handleInputChange}
-                                    />
-                                </div> */}
-
                                 <div className="form-group">
                                     <label> Latitude: </label>
                                     <input
@@ -138,9 +106,9 @@ const CreateSpotComponent = () => {
                                     <label> Formatted Address (maps api): </label>
                                     <input
                                         placeholder="Formatted Address"
-                                        name="formatted_address"
+                                        name="formattedAddress"
                                         className="form-control"
-                                        value={spot.formatted_address}
+                                        value={spot.formattedAddress}
                                         onChange={handleInputChange}
                                     />
                                 </div>
@@ -160,9 +128,9 @@ const CreateSpotComponent = () => {
                                     <label> Place Id (maps api): </label>
                                     <input
                                         placeholder="Place Id"
-                                        name="place_id"
+                                        name="placeId"
                                         className="form-control"
-                                        value={spot.place_id}
+                                        value={spot.placeId}
                                         onChange={handleInputChange}
                                     />
                                 </div>

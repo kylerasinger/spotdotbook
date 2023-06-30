@@ -18,7 +18,7 @@ function App(){
             <Route path = "/" exact element = {<ListSpotComponent/>}></Route>
             <Route path = "/spots" element = {<ListSpotComponent />}></Route>
             <Route path = "/add-spot/:id" element = {<CreateSpotComponent/>}></Route>
-            <Route path = "/view-spot" element = {ViewSpotComponent}></Route>
+            <Route path = "/view-spot/:id" element = {<ViewSpotComponent/>}></Route>
 
           </Routes>
         </div>
