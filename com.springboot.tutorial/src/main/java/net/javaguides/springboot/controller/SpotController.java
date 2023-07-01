@@ -23,7 +23,7 @@ import net.javaguides.springboot.repository.SpotRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/") //?
 public class SpotController{
 	
 	@Autowired
@@ -49,7 +49,7 @@ public class SpotController{
 		return ResponseEntity.ok(spot);
 	}
 	
-	// update spot rest api MIGHT HAVE ISSUES
+	// update spot rest api
 	@PutMapping("/spots/{id}")
 	public ResponseEntity <Spot> updateSpot(@PathVariable Long id, @RequestBody Spot spotDetails) {
 		Spot spot = spotRepository.findById(id)
